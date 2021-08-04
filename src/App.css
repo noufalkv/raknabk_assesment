@@ -1,38 +1,326 @@
-.App {
+html {
+  font-size: 62.5%; /* 16px x 62.5 = 10px = 1rem */
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  height: 100vh;
+  font-size: 1.6rem;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+/* Layout */
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+  grid-template-columns: 1fr;
+  grid-template-rows: 6rem 1fr 5rem;
+  height: 100%;
+}
+header {
+  grid-area: header;
+  background-color: rgb(90, 180, 250);
+}
+main {
+  grid-area: main;
+  padding: 0 0 1rem 0;
+}
+footer {
+  grid-area: footer;
+  background-color: rgb(90, 180, 250);
+  color: #ffffff;
+}
+
+.menu {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  color: #ffffff;
+}
+.steps {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.menu_title {
+  color: rgb(129, 129, 129);
+  padding: 20px;
+}
+.menu_name {
+  color: #ffffff;
+}
+.menu_box {
+  background-color: rgb(219, 0, 0);
+  padding: 15px;
+  border-radius: 0px 0px 0px 15px;
+  width: 250px;
+}
+
+/* Common */
+h1 {
+  font-size: 1.8rem;
+  padding: 1rem 0;
+}
+h2 {
+  font-size: 1.6rem;
+  padding: 1rem 0;
+}
+
+a {
+  text-decoration: none;
+}
+a:hover {
+  color: rgb(219, 0, 0);
+}
+
+.form-steps > div {
+  border-top: 0.3rem #c0c0c0 solid;
+  color: #c0c0c0;
+  flex: 1;
+  padding: 1rem 6rem;
+  font-weight: bold;
+  margin-right: 4px;
+}
+.form-steps > div.active {
+  border-top-color: rgb(219, 0, 0);
+  color: rgb(219, 0, 0);
+}
+
+.form-steps .circle {
+  background: rgb(219, 0, 0);
+  padding: 10px;
+  border-radius: 100%;
+  width: 11px;
+  height: 100px;
+}
+
+.activeColor {
+  color: rgb(219, 0, 0);
+  /* border: 1px dashed  rgb(219, 0, 0); */
+  border-radius: 100%;
+  text-align: center;
+}
+.inactiveColor {
+  color: rgb(189, 189, 189);
+  /* border: 1px dashed  rgb(189, 189, 189); */
+  border-radius: 100%;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Header */
+header a {
+  color: #ffffff;
+  padding: 1rem;
+  padding-top: 80px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+a.pr_name {
+  color: #ffffff;
+  font-size: 3rem;
+  font-weight: bold;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.row {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.row.center {
+  justify-content: center;
+}
+/* Image */
+img {
+  border-radius: 0.5rem;
+}
+img.medium {
+  max-width: 29rem;
+  width: 100%;
+}
+.form {
+  width: 100%;
+  padding: 30px;
+  margin: 50px 0;
+  background-color: #f8f8f8;
+}
+.form_flex {
+  display: flex;
+  flex: 1;
+  padding: 10px;
+  justify-content: center;
+}
+.labelText {
+  width: 220px;
+  text-align: right;
+  margin-right: 15px;
+}
+/* Card */
+.form_box {
+  border: 0.1rem #c0c0c0 dashed;
+  background-color: #ffffff;
+  border-radius: 2rem;
+  margin: 1rem;
+}
+.success {
+  display: flex;
+  justify-content: center;
   flex-direction: column;
   align-items: center;
+  box-shadow: 0px 0px 6px #888888;
+  padding: 30px;
+  margin: 20px;
+}
+.err {
+  color: red;
+}
+.ch_circle {
+  font-size: 150px;
+  color: #28f0ad;
+}
+.card {
+  display: flex;
+  justify-content: space-between;
+}
+.bt_card {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+}
+.bt_btn {
+  margin: 15px;
+}
+.flex-center {
+  display: flex;
+  height: 300px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.imgUpload {
+  display: flex;
+  height: 300px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border: 1px dashed #888888;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 20px 0;
+  min-width: 200px;
+  font-size: 40px;
+}
+.btn_sign {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.btn_sign button,
+.image-upload button {
+  background-color: transparent;
+  border: none;
+  font-size: x-large;
+  cursor: pointer;
+}
+.imgUpload > div {
+  margin: 10px;
+  width: 100%;
+}
+/* .image-upload > input {
+  visibility: hidden;
+  width: 0;
+  height: 0;
+} */
+
+.image-upload > input {
+  display: none;
 }
 
-.App-link {
-  color: #61dafb;
+.image-upload img {
+  width: 80px;
+  cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.card-body {
+  padding: 1rem;
+}
+.personalinfo {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  align-content: center;
+}
+
+.confirmTxt {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-content: center;
+}
+.confirmTxt > div {
+  padding: 12px;
+  width: 200px;
+}
+input {
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 4px;
+}
+.btn,
+.btnbk {
+  background: rgb(219, 0, 0);
+  border: 1px solid #000;
+  padding: 12px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+}
+.btnbk {
+  background: rgb(133, 133, 133) !important;
+}
+.card-body > * {
+  margin-bottom: 0.5rem;
+}
+.card .col1 {
+  width: 60%;
+  padding: 40px 0;
+}
+.card .col2 {
+  width: 40%;
+}
+.price {
+  font-size: 2rem;
+}
+
+.head {
+  background-color: rgb(90, 180, 250);
+  width: 100%;
+  padding: 50px;
+  font-size: 25px;
+  color: #ffffff;
+  font-weight: bolder;
+}
+
+.app__container {
+  width: 100px;
+  height: 100px;
+  border: 1px solid #000;
+  position: relative;
+}
+
+.app__input {
+  position: absolute;
+  top: 0;
+}
+.app__input i {
+  color: tomato;
+}
+.app__input button {
+  background-color: transparent;
+  font-size: x-large;
+  border: none;
+  cursor: pointer;
 }

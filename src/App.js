@@ -1,25 +1,38 @@
-import logo from './logo.svg';
+import React from 'react'
 import './App.css';
+import PersonalInfo from './pages/PersonalInfo';
+import OfficeInfo from './pages/OfficeInfo';
+import Confirmation from './pages/Confirmation';
+import Success from './pages/Success';
+import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="grid-container">
+
+        <header className="row">
+          <div>
+            <Link className="pr_name" to="/">Project Name</Link>
+            
+          </div>
+          
+        </header>
+        <main>
+
+          <div className="row center">
+            <Switch>
+              <Route exact path="/" component={PersonalInfo} />
+              <Route exact path="/officeInfo" component={OfficeInfo} />
+              <Route exact path="/confirmation" component={Confirmation} />
+              <Route exact path="/success" component={Success} />
+            </Switch>
+          </div>
+
+        </main>
+        <footer className="row center">All right reserved</footer>
+      </div>
+    </Router>
   );
 }
-
 export default App;
